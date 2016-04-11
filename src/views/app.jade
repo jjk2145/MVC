@@ -1,0 +1,34 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    .navlink
+      a(href="/logout") Log out
+  section#makeList
+    form#listForm(class="ListForm", name="ListForm", action="/maker", method="POST")
+      label(for="name") Name: 
+      input#ListName(type="text", name="name", placeholder="Your Name")
+      label(for="itemOne") Item 1: 
+      input#ListItemOne(type="text", name="itemOne", placeholder="Enter Item Here")
+      label(for="itemTwo") Item 2:
+      input#ListItemTwo(type="text", name="itemTwo", placeholder="Enter Item Here")
+      input(type="hidden", name="_csrf", value="#{csrfToken}")
+      a#makeListSubmit(class="makeListSubmit", href="#") Make List  
+  section#lists
+    if !lists || lists.length == 0
+        div.lists
+            h3.emptyList No lists yet
+    else
+        each val in lists
+            div.list
+                a(href="/removeList/#{val._id}", class="deleteList") Delete List
+                h3.ListName Name: #{val.name}
+                h3.ListItemOne Item 1: #{val.itemOne}
+                h3.ListItemTwo Item 2: #{val.itemTwo}
+  #ListMessage
+    img#speech(src="/assets/img/speech.png", alt="speech box")
+    h3
+      span#errorMessage
+block scripts
+        script(src="/assets/maker.js")
