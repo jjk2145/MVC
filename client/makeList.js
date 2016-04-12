@@ -39,21 +39,6 @@ $(document).ready(function() {
         
         return false;
     });
-	
-	$("#toApp").on("click", function(e) {
-        e.preventDefault();
 
-        sendAjax($("#ListForm").attr("action"), $("#ListForm").serialize());
-        
-        return false;
-    });
-	
-	$("#toData").on("click", function(e) {
-        e.preventDefault();
-
-        sendAjax($("#ListForm").attr("action"), $("#ListForm").serialize());
-        
-        return false;
-    });
     
 });

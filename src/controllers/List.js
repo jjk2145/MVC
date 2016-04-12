@@ -67,7 +67,7 @@ var makeList = function(req, res){
 			console.log(err);
 			return res.status(400).json({error:'An error occured'});
 		}
-		res.json({redirect: '/makeList'});
+		res.json({redirect: '/mainData'});
 	});
 	
 };
@@ -78,7 +78,7 @@ var deleteList = function(req, res){
             res.json(err);
         }
         else{
-            res.redirect('/makeList');
+            res.redirect('/mainData');
         }        
     });
 };
