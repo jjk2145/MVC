@@ -20,16 +20,8 @@ block body
       input(type="hidden", name="_csrf", value="#{csrfToken}")
       a#makeListSubmit(class="makeListSubmit", href="#") Make List  
   section#lists
-    if !lists || lists.length == 0
         div.lists
-            h3.emptyList No lists yet
-    else
-        each val in lists
-            div.list
-                a(href="/removeList/#{val._id}", class="deleteList") Delete List
-                h3.ListName Name: #{val.name}
-                h3.ListItemOne Item 1: #{val.itemOne}
-                h3.ListItemTwo Item 2: #{val.itemTwo}
+            h3.emptyList Lists are stored on the To Data page.    
   #ListMessage
     h3
       span#errorMessage

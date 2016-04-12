@@ -12,7 +12,7 @@ var router = function(app){
 	app.get("/mainLobby", mid.requiresLogin, controllers.List.mainLobby);
 	app.post("/mainLobby", mid.requiresLogin, controllers.List.lobby);
 	app.get("/mainData", mid.requiresLogin, controllers.List.mainData);
-	app.post("/mainData", mid.requiresLogin, controllers.List.data);
+	app.post("/mainData", mid.requiresLogin, controllers.List.maker);
 	app.get("/", mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 	app.get("/removeList/:_id",  mid.requiresLogin, controllers.List.deleteList);
 };

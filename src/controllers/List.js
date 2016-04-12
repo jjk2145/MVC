@@ -46,10 +46,6 @@ var lobby = function (req, res){
 	res.json({redirect: '/makeList'});
 };
 
-var data = function (req, res){
-	res.json({redirect: '/makeList'});
-};
-
 var makeList = function(req, res){
 	
 	if(!req.body.name || !req.body.itemOne || !req.body.itemTwo) {
@@ -92,5 +88,4 @@ module.exports.maker = makeList;
 module.exports.mainLobby = mainLobby;
 module.exports.lobby = lobby;
 module.exports.mainData = mainData;
-module.exports.data = data;
 module.exports.deleteList = deleteList;
