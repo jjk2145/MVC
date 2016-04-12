@@ -31,14 +31,14 @@ var mainLobby = function(req, res) {
 };
 
 var mainData = function(req, res) {
-	List.ListModel.findByOwner(req.session.account._id, function(err){
+	List.ListModel.findByOwner(req.session.account._id, function(err, docs){
 		
 		if(err){
 			console.log(err);
 			return res.status(400).json({error: 'An error occured'});
 		}
 		
-		res.render('data', { csrfToken: req.csrfToken()});
+		res.render('data', { csrfToken: req.csrfToken(), lists: docs});
 	});
 };
 

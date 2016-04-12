@@ -9,9 +9,17 @@ block body
       a(href="/mainLobby") To Main
     .navlink
       a(href="/makeList") To App 
-  section#lists
+ section#lists
+    if !lists || lists.length == 0
         div.lists
-            h3.emptyList Data stored here
+            h3.emptyList No Data yet
+    else
+        each val in lists
+            div.list
+                a(href="/removeList/#{val._id}", class="deleteList") Delete List
+                h3.ListName Name: #{val.name}
+                h3.ListItemOne Item 1: #{val.itemOne}
+                h3.ListItemTwo Item 2: #{val.itemTwo}
   #ListMessage
     h3
       span#errorMessage
