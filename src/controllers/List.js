@@ -17,10 +17,27 @@ var makerPage = function(req, res) {
 	
 };
 
+var mainLobby = function(req, res) {
+	res.render('lobby', { csrfToken: req.csrfToken(), lists: docs});
+};
+
+var mainData = function(req, res) {
+	res.render('Data', { csrfToken: req.csrfToken(), lists: docs});
+};
+
+var lobby = function (req, res){
+	res.json({redirect: '/makeList'});
+};
+
+var data = function (req, res){
+	res.json({redirect: '/makeList'});
+};
+
 var makeList = function(req, res){
 	
 	if(!req.body.name || !req.body.itemOne || !req.body.itemTwo) {
-		return res.status(400).json({error: "Please provide a name and two items."});
+		console.log("Please provide a name and two items");
+		return res.status(400).json({error: "Please provide a name and two items"});
 	}
 	
 	var ListData = {
@@ -37,7 +54,7 @@ var makeList = function(req, res){
 			console.log(err);
 			return res.status(400).json({error:'An error occured'});
 		}
-		res.json({redirect: '/maker'});
+		res.json({redirect: '/makeList'});
 	});
 	
 };
@@ -48,11 +65,15 @@ var deleteList = function(req, res){
             res.json(err);
         }
         else{
-            res.redirect('/maker');
+            res.redirect('/makeList');
         }        
     });
 };
 
 module.exports.makerPage = makerPage;
 module.exports.make = makeList;
+module.exports.mainLobby = mainLobby;
+module.exports.lobby = lobby;
+module.exports.mainData = mainData;
+module.exports.data = data;
 module.exports.deleteList = deleteList;

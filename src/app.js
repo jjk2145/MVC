@@ -48,7 +48,7 @@ app.use(session({
 		port: redisURL.port,
 		pass: redisPASS
 	}),
-	secret: 'shopping list',
+	secret: 'list',
 	resave: true,
 	saveUninitialized: true,
 	cookie: {

@@ -1,0 +1,19 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    .navlink
+      a(href="/logout") Log out
+    .navlink
+      a(href="/makeList") To App
+    .navlink
+      a(href="/makeData") To Data
+  section#lists
+        div.lists
+            h3.emptyList Welcome to this app. Use the nav bar to move between the pages.
+  #ListMessage
+    h3
+      span#errorMessage
+block scripts
+        script(src="/assets/makeList.js")

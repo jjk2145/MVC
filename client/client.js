@@ -29,6 +29,7 @@ $(document).ready(function() {
         
         if($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
             handleError("Please provide all required fields");
+			console.log("Please provide all required fields");
             return false;
         }
         
@@ -47,6 +48,7 @@ $(document).ready(function() {
     
         if($("#user").val() == '' || $("#pass").val() == '') {
             handleError("Please provide a username and password");
+			console.log("Please provide a username and password");
             return false;
         }
     

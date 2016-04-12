@@ -17,26 +17,30 @@ var logout = function(req, res){
 
 var login = function(req, res){
 	if(!req.body.username || !req.body.pass){
+		console.log("Please provide all required feilds");
 		return res.status(400).json({error: "Please provide all required feilds"});
 	}
 	
 	Account.AccountModel.authenticate(req.body.username, req.body.pass, function(err,account){
 		if(err || !account){
+			console.og("Wrong username or password");
 			return res.status(401).json({error: "Wrong username or password"});
 		}
 		
 		req.session.account = account.toAPI();
 		
-		res.json({redirect: '/maker'});
+		res.json({redirect: '/mainLobby'});
 	});
 };
 
 var signup = function(req, res){
 	if(!req.body.username || !req.body.pass || !req.body.pass2) {
+		console.log("Please fill each field");
 		return res.status(400).json({error: "Please fill each field"});
 	}
 	
 	if(req.body.pass !== req.body.pass2) {
+		console.log("Passwords do not match");
 		return res.status(400).json({error: "Passwords do not match"});
 	}
 	
@@ -57,7 +61,7 @@ var signup = function(req, res){
 			
 			req.session.account = newAccount.toAPI();
 			
-			res.json({redirect: '/maker'});
+			res.json({redirect: '/mainLobby'});
 		});
 	});
 };

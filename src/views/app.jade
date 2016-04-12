@@ -5,6 +5,10 @@ block body
   nav
     .navlink
       a(href="/logout") Log out
+    .navlink
+      a(href="/makeLobby") To Main
+    .navlink
+      a(href="/makeData") To Data
   section#makeList
     form#ListForm(class="ListForm", name="ListForm", action="/maker", method="POST")
       label(for="name") Name: 
@@ -27,8 +31,7 @@ block body
                 h3.ListItemOne Item 1: #{val.itemOne}
                 h3.ListItemTwo Item 2: #{val.itemTwo}
   #ListMessage
-    img#speech(src="/assets/img/speech.png", alt="speech box")
     h3
       span#errorMessage
 block scripts
-        script(src="/assets/maker.js")
+        script(src="/assets/makeList.js")

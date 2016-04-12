@@ -3,6 +3,7 @@
 $(document).ready(function() {
 
     function handleError(message) {
+		console.log(message);
         $("#errorMessage").text(message);
     }
     
@@ -19,7 +20,7 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 var messageObj = JSON.parse(xhr.responseText);
-            
+				console.log(messageObj.error);
                 handleError(messageObj.error);
             }
         });        
@@ -30,6 +31,7 @@ $(document).ready(function() {
     
         if($("#ListName").val() == '' || $("#ListItemOne").val() == '' || $("#ListItemTwo").val() == '') {
             handleError("Please provide a name and two items");
+			console.log("Please provide a name and two items");
             return false;
         }
 
