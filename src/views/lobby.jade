@@ -6,7 +6,6 @@ block body
     .navlink
       a(href="/logout") Log out
   section#makeList
-    form#ListForm(class="ListForm", name="ListForm", action="/maker", method="POST")
       input(type="hidden", name="_csrf", value="#{csrfToken}")
       a#toApp(class="makeListSubmit", href="/makeList") To App 
       a#toData(class="makeListSubmit", href="/mainData") To Data	  
