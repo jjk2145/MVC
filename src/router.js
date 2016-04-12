@@ -8,7 +8,7 @@ var router = function(app){
 	app.post("/signup", mid.requiresSecure, mid.requiresLogout,controllers.Account.signup);
 	app.get("/logout", mid.requiresLogin, controllers.Account.logout);
 	app.get("/makeList", mid.requiresLogin, controllers.List.makerPage);
-	app.post("/makeList", mid.requiresLogin, controllers.List.make);
+	app.post("/makeList", mid.requiresLogin, controllers.List.maker);
 	app.get("/mainLobby", mid.requiresLogin, controllers.List.mainLobby);
 	app.post("/mainLobby", mid.requiresLogin, controllers.List.lobby);
 	app.get("/mainData", mid.requiresLogin, controllers.List.mainData);

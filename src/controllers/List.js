@@ -88,7 +88,7 @@ var deleteList = function(req, res){
 };
 
 module.exports.makerPage = makerPage;
-module.exports.make = makeList;
+module.exports.maker = makeList;
 module.exports.mainLobby = mainLobby;
 module.exports.lobby = lobby;
 module.exports.mainData = mainData;
