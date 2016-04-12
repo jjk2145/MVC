@@ -11,8 +11,8 @@ var router = function(app){
 	app.post("/makeList", mid.requiresLogin, controllers.List.make);
 	app.get("/mainLobby", mid.requiresLogin, controllers.List.mainLobby);
 	app.post("/mainLobby", mid.requiresLogin, controllers.List.lobby);
-	app.get("/Data", mid.requiresLogin, controllers.List.mainData);
-	app.post("/Data", mid.requiresLogin, controllers.List.data);
+	app.get("/mainData", mid.requiresLogin, controllers.List.mainData);
+	app.post("/mainData", mid.requiresLogin, controllers.List.data);
 	app.get("/", mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 	app.get("/removeList/:_id",  mid.requiresLogin, controllers.List.deleteList);
 };
