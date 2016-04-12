@@ -18,11 +18,19 @@ var makerPage = function(req, res) {
 };
 
 var mainLobby = function(req, res) {
-	res.render('lobby', { csrfToken: req.csrfToken(), lists: docs});
+	res.render('lobby', { csrfToken: req.csrfToken()});
 };
 
 var mainData = function(req, res) {
-	res.render('Data', { csrfToken: req.csrfToken(), lists: docs});
+	List.ListModel.findByOwner(req.session.account._id, function(err, docs){
+		
+		if(err){
+			console.log(err);
+			return res.status(400).json({error: 'An error occured'});
+		}
+		
+		res.render('data', { csrfToken: req.csrfToken(), lists: docs});
+	});
 };
 
 var lobby = function (req, res){
