@@ -5,10 +5,11 @@ block body
   nav
     .navlink
       a(href="/logout") Log out
-    .navlink
-      a(href="/makeList") To App
-    .navlink
-      a(href="/mainData") To Data
+  section#makeList
+    form#ListForm(class="ListForm", name="ListForm", action="/maker", method="POST")
+      input(type="hidden", name="_csrf", value="#{csrfToken}")
+      a#toApp(class="makeListSubmit", href="/makeList") To App 
+      a#toData(class="makeListSubmit", href="/mainData") To Data	  
   section#lists
         div.lists
             h3.emptyList Welcome to this app. Use the nav bar to move between the pages.
